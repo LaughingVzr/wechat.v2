@@ -56,7 +56,9 @@ func GetNews(clt *core.Client, mediaId string) (news *News, err error) {
 	}
 	var result struct {
 		core.Error
-		Articles []Article `json:"news_item"`
+		Articles   []Article `json:"news_item"`
+		CreateTime int64     `json:"create_time"` // 新闻创建时间
+		UpdateTime int64     `json:"update_time"` // 新闻修改时间
 	}
 	if err = clt.PostJSON(incompleteURL, &request, &result); err != nil {
 		return
@@ -67,6 +69,8 @@ func GetNews(clt *core.Client, mediaId string) (news *News, err error) {
 	}
 	news = &News{
 		Articles: result.Articles,
+		CreateTime: result.CreateTime,
+		UpdateTime: result.UpdateTime
 	}
 	return
 }
