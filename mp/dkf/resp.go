@@ -1,7 +1,7 @@
 package dkf
 
 import (
-	"github.com/chanxuehong/wechat.v2/mp/core"
+	"github.com/LaughingVzrs/wechat.v2/mp/core"
 )
 
 const (

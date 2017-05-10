@@ -1,7 +1,7 @@
 package core
 
 import (
-	"github.com/chanxuehong/wechat.v2/internal/util"
+	"github.com/LaughingVzr/wechat.v2/internal/util"
 )
 
 const maxHandlerChainSize = 64
