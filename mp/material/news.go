@@ -3,22 +3,27 @@ package material
 import (
 	"fmt"
 
-	"github.com/chanxuehong/wechat.v2/mp/core"
+	"github.com/LaughingVzr/wechat.v2/mp/core"
 )
 
 type Article struct {
-	ThumbMediaId     string `json:"thumb_media_id"`               // 图文消息的封面图片素材id(必须是永久mediaID)
-	Title            string `json:"title"`                        // 标题
-	Author           string `json:"author,omitempty"`             // 作者
-	Digest           string `json:"digest,omitempty"`             // 图文消息的摘要, 仅有单图文消息才有摘要, 多图文此处为空
-	Content          string `json:"content"`                      // 图文消息的具体内容, 支持HTML标签, 必须少于2万字符, 小于1M, 且此处会去除JS
-	ContentSourceURL string `json:"content_source_url,omitempty"` // 图文消息的原文地址, 即点击"阅读原文"后的URL
-	ShowCoverPic     int    `json:"show_cover_pic"`               // 是否显示封面, 0为false, 即不显示, 1为true, 即显示
-	URL              string `json:"url,omitempty"`                // !!!创建时不需要此参数!!! 图文页的URL, 文章创建成功以后, 会由微信自动生成
+	ThumbMediaID       string `json:"thumb_media_id"`               // 图文消息的封面图片素材id(必须是永久mediaID)
+	Title              string `json:"title"`                        // 标题
+	Author             string `json:"author,omitempty"`             // 作者
+	Digest             string `json:"digest,omitempty"`             // 图文消息的摘要, 仅有单图文消息才有摘要, 多图文此处为空
+	Content            string `json:"content"`                      // 图文消息的具体内容, 支持HTML标签, 必须少于2万字符, 小于1M, 且此处会去除JS
+	ContentSourceURL   string `json:"content_source_url,omitempty"` // 图文消息的原文地址, 即点击"阅读原文"后的URL
+	ShowCoverPic       int    `json:"show_cover_pic"`               // 是否显示封面, 0为false, 即不显示, 1为true, 即显示
+	URL                string `json:"url,omitempty"`                // !!!创建时不需要此参数!!! 图文页的URL, 文章创建成功以后, 会由微信自动生成
+	ThumbURL           string `json:"thumb_url"`                    // 封面图片的地址
+	NeedOpenComment    int    `json:"need_open_comment"`            // 是否开启评论
+	OnlyFansCanComment int    `json:"only_fans_can_comment"`        // 是否只有粉丝可评论
 }
 
 type News struct {
-	Articles []Article `json:"articles,omitempty"`
+	Articles   []Article `json:"news_items,omitempty"` // 文章集合
+	CreateTime int64     `json:"create_time"`          // 新闻创建时间
+	UpdateTime int64     `json:"update_time"`          // 新闻修改时间
 }
 
 // 新增永久图文素材.
