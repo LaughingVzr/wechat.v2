@@ -9,7 +9,7 @@ import (
 
 	"github.com/LaughingVzr/wechat.v2/internal/debug/api"
 	"github.com/LaughingVzr/wechat.v2/internal/debug/api/retry"
-	"github.com/chanxuehong/wechat.v2/json"
+	"github.com/LaughingVzr/wechat.v2/json"
 )
 
 type Client struct {
