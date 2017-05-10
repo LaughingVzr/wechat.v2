@@ -109,7 +109,9 @@ type NewsInfo struct {
 	MediaId    string `json:"media_id"`    // 素材id
 	UpdateTime int64  `json:"update_time"` // 最后更新时间
 	Content    struct {
-		Articles []Article `json:"news_item,omitempty"`
+		Articles   []Article `json:"news_item,omitempty"`
+		CreateTime int64     `json:"create_time"` // 新闻创建时间
+		UpdateTime int64     `json:"update_time"` // 新闻修改时间
 	} `json:"content"`
 }
 
