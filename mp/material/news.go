@@ -68,9 +68,9 @@ func GetNews(clt *core.Client, mediaId string) (news *News, err error) {
 		return
 	}
 	news = &News{
-		Articles: result.Articles,
+		Articles:   result.Articles,
 		CreateTime: result.CreateTime,
-		UpdateTime: result.UpdateTime
+		UpdateTime: result.UpdateTime,
 	}
 	return
 }
